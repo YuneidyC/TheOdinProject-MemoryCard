@@ -78,16 +78,3 @@ h1 {
         scale: 1;
     }
 }
-
-@media (max-width: 1000px) {
-    body {
-        background-color: plum;
-    }
-
-    .pokemon {
-        img {
-            width: 150px;
-            height: 150px;
-        }
-    }
-}
