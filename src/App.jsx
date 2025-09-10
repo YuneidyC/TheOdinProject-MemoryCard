@@ -59,6 +59,7 @@ function App() {
 
     return (
         <>
+            <h1>Memory Card</h1>
             <div className='score-container'>
                 <table>
                     <tbody>
