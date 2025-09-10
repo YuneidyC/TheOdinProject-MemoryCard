@@ -14,7 +14,7 @@ name: 'Lighthouse-Badger-Easy'
 
 # INPUTS as environmental variables (env) for not manually triggered workflows 
 env:
-  URLS: https://yuneidyc.github.io/TheOdinProject-MemoryCard/
+  URLS: https://yuneidyc.github.io/theodinproject-memorycard/
   TOKEN_NAME: LIGHTHOUSE_BADGER_TOKEN # target token name; insert only the name never the real value e.g. 'LIGHTHOUSE_BADGER_TOKEN'
   # THAT'S IT; JUMP TO THE TRIGGERS;
   REPO_BRANCH: '${{ github.repository }} master'
