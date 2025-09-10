@@ -8,23 +8,37 @@ function App() {
     const [cardClicked, setCardClicked] = useState([]);
     const serverUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=12';
 
-    async function getURLs() {
-        const resUrls = await fetch(serverUrl);
-        const data = await resUrls.json();
-
-        setPokemons(await Promise.all(
-            data.results.map(async (p) => {
-                const res = await fetch(p.url);
-                const pokeData = await res.json();
-
-                return {
-                    id: pokeData.id,
-                    name: pokeData.name,
-                    image: pokeData.sprites.other['official-artwork'].front_default,
-                };
-            })
-        ));
+    const shuffle = (array) => {
+        for (let i = array.length - 1; i > 0; i--) {
+            let j = Math.floor(Math.random() * (i + 1));
+            let temp = array[i];
+            array[i] = array[j];
+            array[j] = temp;
+        }
     };
+
+    useEffect(() => {
+        async function getURLs() {
+            const resUrls = await fetch(serverUrl);
+            const data = await resUrls.json();
+            shuffle(data.results);
+
+            setPokemons(await Promise.all(
+                data.results.map(async (p) => {
+                    const res = await fetch(p.url);
+                    const pokeData = await res.json();
+                    return {
+                        id: pokeData.id,
+                        name: pokeData.name,
+                        image: pokeData.sprites.other['official-artwork'].front_default,
+                    };
+                })
+            ));
+        };
+
+        getURLs();
+        shuffle(pokemons);
+    }, []);
 
     function clicked(e) {
         let pokemonId = parseInt(e.target.id);
@@ -40,11 +54,8 @@ function App() {
             setScore(0);
             setCardClicked([]);
         }
+        shuffle(pokemons);
     }
-
-    useEffect(() => {
-        getURLs();
-    }, []);
 
     return (
         <>
