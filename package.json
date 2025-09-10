@@ -1,5 +1,5 @@
 {
-    "name": "TheOdinProject-MemoryCard",
+    "name": "theodinproject-memorycard",
     "version": "0.0.0",
     "type": "module",
     "scripts": {
@@ -12,7 +12,7 @@
     },
     "repository": {
         "type": "git",
-        "url": "https://yuneidyc.github.io/TheOdinProject-MemoryCard"
+        "url": "https://yuneidyc.github.io/theodinproject-memorycard/"
     },
     "dependencies": {
         "node": "^22.19.0",
