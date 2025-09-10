@@ -4,7 +4,7 @@ import './App.css';
 function App() {
     const [pokemons, setPokemons] = useState([]);
     const [score, setScore] = useState(0);
-    const [highScore, setHighScore] = useState(0);
+    const [bestScore, setBestScore] = useState(0);
     const [cardClicked, setCardClicked] = useState([]);
     const serverUrl = 'https://pokeapi.co/api/v2/pokemon/?limit=12';
 
@@ -49,7 +49,7 @@ function App() {
             setCardClicked([...cardClicked, { id: pokemonId }]);
         } else {
             if (score !== 0) {
-                setHighScore(score);
+                setBestScore(score);
             }
             setScore(0);
             setCardClicked([]);
@@ -65,11 +65,11 @@ function App() {
                     <tbody>
                         <tr className='score'>
                             <th>Score</th>
-                            <th>High Score</th>
+                            <th>Best Score</th>
                         </tr>
                         <tr>
                             <td>{score}</td>
-                            <td>{highScore}</td>
+                            <td>{bestScore}</td>
                         </tr>
                     </tbody>
                 </table>
