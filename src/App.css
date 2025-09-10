@@ -11,9 +11,13 @@
     padding: 20px 0;
 }
 
+h1 {
+    text-align: center;
+}
+
 .score-container {
     display: flex;
-    justify-content: end;
+    justify-content: center;
     align-items: center;
 
     table {
